@@ -1,4 +1,4 @@
-# Simple CRUD com Node.js e Express.js
+# Basic CRUD com Node.js e Express.js
 
 Este projeto é um CRUD simples para cadastro de usuários, desenvolvido com Node.js e Express.js. Ele permite criar, listar, atualizar e deletar usuários, onde cada usuário possui apenas as propriedades `name` e `age`.
 
