@@ -14,5 +14,5 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 app.use(routes);
 
 app.listen(3000, () => {
-  console.log("API rodando na porta: port 3000");
+  console.log("API rodando na porta: 3000");
 });

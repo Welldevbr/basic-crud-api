@@ -2,7 +2,7 @@ import { v4 as uuid } from "uuid";
 
 const users = [];
 
-export function getAllUsers(req, res) {
+function getAllUsers(req, res) {
   const { name } = req.query;
 
   if (!users.length) {
@@ -28,7 +28,7 @@ export function getAllUsers(req, res) {
   return res.status(200).json(users);
 }
 
-export function userDetails(req, res) {
+function userDetails(req, res) {
   const currentUser = users.find((user) => user.id === req.params.id);
 
   if (!currentUser) {
@@ -40,7 +40,7 @@ export function userDetails(req, res) {
   return res.status(200).json(currentUser);
 }
 
-export function createUser(req, res) {
+function createUser(req, res) {
   const { name, age } = req.body;
 
   if (!name || !age) {
@@ -68,7 +68,7 @@ export function createUser(req, res) {
     .json({ success: true, message: "Usuário criado com sucesso!" });
 }
 
-export function updateUser(req, res) {
+function updateUser(req, res) {
   const index = users.findIndex((user) => user.id === req.params.id);
   const { name, age } = req.body;
 
@@ -97,7 +97,7 @@ export function updateUser(req, res) {
     .json({ success: true, message: "Usuário editado com sucesso!" });
 }
 
-export function deleteUser(req, res) {
+function deleteUser(req, res) {
   const index = users.findIndex((user) => user.id === req.params.id);
 
   if (index === -1) {
@@ -112,3 +112,5 @@ export function deleteUser(req, res) {
     .status(200)
     .json({ success: true, message: "Usuário deletado com sucesso!" });
 }
+
+export { getAllUsers, userDetails, createUser, updateUser, deleteUser };

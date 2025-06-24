@@ -2,7 +2,7 @@
   "type": "module",
   "name": "backend-basic",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "license": "MIT",
   "dependencies": {
     "express": "^5.1.0",
@@ -10,9 +10,10 @@
     "uuid": "^11.1.0"
   },
   "scripts": {
-    "dev": "node --watch --no-warnings src/index.js",
-    "start": "node src/index.js"
+    "dev": "nodemon --watch src/server.js",
+    "start": "node src/server.js"
   },
-  "author": "",
-  "description": ""
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
 }
