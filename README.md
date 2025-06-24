@@ -33,8 +33,8 @@ Inicie o servidor com o comando:
 npm start
 ```
 
-O servidor será iniciado em http://localhost:3000 
-e para acessar a documentação basta acessar: http://localhost:3000/api-docs/
+O servidor será iniciado em [http://localhost:3000]( http://localhost:3000) 
+e para acessar a documentação basta acessar: [http://localhost:3000/api-docs/]( http://localhost:3000/api-docs/)
 
 ## Endpoints publicos
 
