@@ -1,10 +1,14 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "Basic Rest API",
+    "title": "Basic CRUD API",
     "author": "Well dev",
-    "description": "A simple REST API built with Express.js",
-    "version": "1.0.0"
+    "description": "Esta é uma API de exemplo para demonstrar operações CRUD básicas",
+    "contact": {
+      "name": "github",
+      "url": "https://github.com/Welldevbr"
+    },
+    "version": "1.0.2"
   },
   "servers": [
     {
