@@ -1,4 +1,4 @@
-const verifyToken = (req, res, next) => {
+export default async function verifyToken(req, res, next) {
   const token = req.headers["authorization"];
 
   if (!token) {
@@ -8,6 +8,4 @@ const verifyToken = (req, res, next) => {
   }
 
   return next();
-};
-
-module.exports = verifyToken;
+}

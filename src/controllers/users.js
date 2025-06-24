@@ -1,6 +1,8 @@
+import { v4 as uuid } from "uuid";
+
 const users = [];
 
-function getAllUsers(req, res) {
+export function getAllUsers(req, res) {
   const { name } = req.query;
 
   if (!users.length) {
@@ -26,8 +28,8 @@ function getAllUsers(req, res) {
   return res.status(200).json(users);
 }
 
-function userDetails(req, res) {
-  const currentUser = users.find((user) => user.id === parseInt(req.params.id));
+export function userDetails(req, res) {
+  const currentUser = users.find((user) => user.id === req.params.id);
 
   if (!currentUser) {
     return res
@@ -38,7 +40,7 @@ function userDetails(req, res) {
   return res.status(200).json(currentUser);
 }
 
-function createUser(req, res) {
+export function createUser(req, res) {
   const { name, age } = req.body;
 
   if (!name || !age) {
@@ -47,8 +49,14 @@ function createUser(req, res) {
       .json({ success: false, message: "Preencha todos os campos!" });
   }
 
+  if (users.some((user) => user.name.toLowerCase() === name.toLowerCase())) {
+    return res
+      .status(409)
+      .json({ success: false, message: "Usuário já cadastrado!" });
+  }
+
   const user = {
-    id: users?.length ? users[users?.length - 1]?.id + 1 : 1,
+    id: uuid(),
     name,
     age,
   };
@@ -60,8 +68,8 @@ function createUser(req, res) {
     .json({ success: true, message: "Usuário criado com sucesso!" });
 }
 
-function updateUser(req, res) {
-  const index = users.findIndex((user) => user.id === parseInt(req.params.id));
+export function updateUser(req, res) {
+  const index = users.findIndex((user) => user.id === req.params.id);
   const { name, age } = req.body;
 
   if (index === -1) {
@@ -89,8 +97,8 @@ function updateUser(req, res) {
     .json({ success: true, message: "Usuário editado com sucesso!" });
 }
 
-function deleteUser(req, res) {
-  const index = users.findIndex((user) => user.id === parseInt(req.params.id));
+export function deleteUser(req, res) {
+  const index = users.findIndex((user) => user.id === req.params.id);
 
   if (index === -1) {
     return res
@@ -104,11 +112,3 @@ function deleteUser(req, res) {
     .status(200)
     .json({ success: true, message: "Usuário deletado com sucesso!" });
 }
-
-module.exports = {
-  getAllUsers,
-  userDetails,
-  createUser,
-  updateUser,
-  deleteUser,
-};

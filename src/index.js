@@ -1,13 +1,18 @@
-const express = require("express");
-const routes = require("./routes");
+import express from "express";
+import swaggerUi from "swagger-ui-express";
+
+import routes from "./routes.js";
+
+import swaggerDocs from "./swagger.json" assert { type: "json" };
 
 const app = express();
 
-const port = 3001;
-
 app.use(express.json());
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+
 app.use(routes);
 
-app.listen(port, () => {
-  console.log(`API rodando na porta: ${port}`);
+app.listen(3000, () => {
+  console.log("API rodando na porta: port 3000");
 });
