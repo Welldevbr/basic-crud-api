@@ -33,7 +33,8 @@ Inicie o servidor com o comando:
 npm run dev
 ```
 
-O servidor será iniciado em http://localhost:3001 (ou porta configurada no projeto).
+O servidor será iniciado em http://localhost:3000 
+e para acessar a documentação basta acessar: http://localhost:3000/api-docs/
 
 ## Endpoints publicos
 
@@ -51,3 +52,4 @@ O servidor será iniciado em http://localhost:3001 (ou porta configurada no proj
 
 - Node.js
 - Express.js
+- Swagger
