@@ -30,7 +30,7 @@ npm install
 Inicie o servidor com o comando:
 
 ```bash
-npm run dev
+npm start
 ```
 
 O servidor será iniciado em http://localhost:3000 
